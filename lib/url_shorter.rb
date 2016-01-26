@@ -1,9 +1,9 @@
 require "url_shorter/version"
+require 'net/http'
+require 'uri'
+require 'json'
 
 module UrlShorter
-  require 'net/http'
-  require 'uri'
-  require 'json'
 
   class UrlShorter
 
@@ -12,11 +12,11 @@ module UrlShorter
     def initialize(api_key, long_url)
       @api_key = api_key
       @long_url = long_url
-      _create_short_url
+      self._create_short_url
     end
 
     def _create_short_url
-      @short_url = _request_api
+      @short_url = self._request_api
     end
 
     def _request_api
@@ -27,11 +27,10 @@ module UrlShorter
 
       req = Net::HTTP::Post.new(uri.request_uri, initheader = {'Content-Type' => 'application/json'})
       req.body = {longUrl: @long_url}.to_json
-
+      puts 'test'
       res = https.request(req)
       result = JSON.parse(res.body)
       result['id']
     end
   end
-
 end
