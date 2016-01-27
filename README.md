@@ -20,7 +20,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'url_shorter'
+
+access_key = 'your key'
+long_url = 'url to shorten'
+
+url_shorter = UrlShorter::UrlShorter.new(access_key, long_url)
+puts url_shorter.short_url
+```
+
 
 ## Development
 
