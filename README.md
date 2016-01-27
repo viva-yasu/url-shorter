@@ -29,7 +29,9 @@ long_url = 'url to shorten'
 url_shorter = UrlShorter::UrlShorter.new(access_key, long_url)
 puts url_shorter.short_url
 ```
-
+`notice:`
+The first param of This constructor is Google URL Shortener access key.
+The second param of This constructor is long URL to want to shorten.
 
 ## Development
 
